@@ -1,0 +1,39 @@
+body {
+    background-image: url('background.jpg'); /* Dein Hintergrundbild */
+    background-size: cover; /* Bild wird auf den gesamten Hintergrund skaliert */
+    background-position: center; /* Zentrieren des Bildes */
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+    grid-gap: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative; /* Wir benötigen die relative Positionierung, um die Slots zu steuern */
+}
+
+.slot {
+    width: 180px; 
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.4); /* Ein halbtransparentes Weiß für die Slots */
+    border-radius: 10px;
+    position: relative; /* Damit wir die Position des Maulwurfs steuern können */
+    overflow: hidden; /* Damit der Maulwurf nicht außerhalb des Slots rauskommt */
+}
+
+/* Maulwurf mit einer Positionierung über dem Hügel */
+.slot img {
+    position: absolute;
+    width: 100%;  /* Bild wird auf die gesamte Kachelgröße angepasst */
+    height: 100%; /* Bild wird ebenfalls in der Höhe angepasst */
+    bottom: -30px; /* Position anpassen */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    object-fit: contain;  /* Bild wird proportional skaliert */
+}
